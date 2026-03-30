@@ -1,0 +1,33 @@
+{
+  "name": "api-forgex",
+  "version": "1.0.0",
+  "description": "CLI tool for scaffolding Express backend infrastructure.",
+  "main": "index.js",
+  "bin": {
+    "api-forgex": "./index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+    "files": [
+    "index.js",
+    "src/"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nnxi/api-forgex.git"
+  },
+  "keywords": [],
+  "author": "nnxi",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/nnxi/api-forgex/issues"
+  },
+  "homepage": "https://github.com/nnxi/api-forgex#readme",
+  "dependencies": {
+    "ejs": "^5.0.1",
+    "fs-extra": "^11.3.4",
+    "inquirer": "^13.3.2"
+  }
+}

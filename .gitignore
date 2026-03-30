@@ -1,0 +1,22 @@
+# 의존성
+node_modules/
+npm-debug.log*
+
+# OS 생성 파일
+.DS_Store
+Thumbs.db
+
+# 에디터 설정
+.vscode/
+.idea/
+
+# 프로젝트 실행 시 생성되는 임시/테스트 결과물
+dist/
+temp/
+*-temp-*
+my-project/
+my-express-app/
+
+# 환경 변수
+.env
+.env.local
