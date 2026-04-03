@@ -1,7 +1,9 @@
 import { execSync } from 'child_process';
+import fs from 'fs-extra';
+import path from 'path';
 
 // 환경 변수 및 필수 도구 설치 여부 검사
-const preCheck = (useDB) => {
+const preProcess = (answers) => {
     const missingTools = [];
 
     try {
@@ -10,7 +12,7 @@ const preCheck = (useDB) => {
         missingTools.push('Git');
     }
 
-    if (useDB) {
+    if (answers.useDB) {
         try {
             execSync('docker --version', { stdio: 'ignore' });
         } catch {
@@ -30,4 +32,24 @@ const preCheck = (useDB) => {
     return true;
 };
 
-export { preCheck };
+const postProcess = async (targetPath) => {
+    try {
+        const envExaplePath = path.join(targetPath, '.env.example');
+        const envPath = path.join(targetPath, '.env');
+
+        if (fs.existsSync(envExaplePath) && !fs.existsSync(envPath)) {
+            await fs.copy(envExaplePath, envPath);
+        }
+
+        console.log('\nPackage installing...');
+        execSync('npm install', {
+            cwd: targetPath,
+            stdio: 'inherit'
+        }); 
+
+    } catch (err) {
+        throw err;
+    }
+}
+
+export { preProcess, postProcess };

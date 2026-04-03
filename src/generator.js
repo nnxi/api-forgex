@@ -68,6 +68,8 @@ const rendering = async (tempPath, answers) => {
                 await renderDirectory(jwtDir, targetPath, answers);
             }
         }
+
+        return targetPath;
     } catch (err) {
         throw err;
     }
