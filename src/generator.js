@@ -9,6 +9,7 @@ const renderDirectory = async (tempDir, targetDir, answers) => {
         while (queue.length > 0) {
             const { src, dest } = queue.shift();
 
+            //파일이 없으면 만들고, 있으면 추가
             await fs.ensureDir(dest);
 
             const items = await fs.readdir(src);
