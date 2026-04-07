@@ -34,7 +34,7 @@ const preProcess = (answers) => {
 
 const postProcess = async (targetPath) => {
     try {
-        const envExaplePath = path.join(targetPath, '.env.example.ejs');
+        const envExaplePath = path.join(targetPath, '.env.example');
         const envPath = path.join(targetPath, '.env');
 
         if (fs.existsSync(envExaplePath) && !fs.existsSync(envPath)) {
