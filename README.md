@@ -42,6 +42,20 @@ npm run dev
 
 *Note: If you selected API documentation, npm start will automatically generate documentation.*
 
+## Default Test Accounts (Users Domain)
+
+If you selected the **Users Domain** and **Database** addons during setup, the initial database is automatically seeded with five test accounts. You can use these accounts to easily test JWT authentication and user status logic.
+
+> **The password for all test accounts is: `test`**
+
+| Username (ID) | Email | Status | Description |
+| :--- | :--- | :--- | :--- |
+| `nnxi` | nnxi@test.com | ACTIVE | Normal active user |
+| `test1` | test1@test.com | ACTIVE | Normal active user |
+| `test2` | test2@test.com | SUSPENDED | Suspended user |
+| `test3` | test3@test.com | ACTIVE | Withdrawn user (Soft-deleted) |
+| `test4` | test4@test.com | SUSPENDED | Suspended and withdrawn user |
+
 ## License
 
 [MIT](LICENSE)

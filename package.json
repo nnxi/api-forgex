@@ -1,6 +1,6 @@
 {
   "name": "api-forgex-cli",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "CLI tool for scaffolding Express backend infrastructure.",
   "main": "index.js",
   "bin": {
