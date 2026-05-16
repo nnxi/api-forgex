@@ -25,21 +25,21 @@ const getOptions = async () => {
       name: 'useUsersDomain',
       message: 'Include User(Register/Login) API boilerplate?',
       when: (answers) => answers.useDB && answers.useJWT,
-      default: true 
-    },
-    {
-      type: 'confirm',
-      name: 'useSwagger',
-      message: 'Include Swagger API documentation setup?',
       default: false
     },
     {
       type: 'confirm',
+      name: 'useApiDocGen',
+      message: 'Include nodejs-api-docgen API documentation setup?',
+      default: false
+    }/*,
+    {
+      type: 'confirm',
       name: 'useMonitoring',
-      message: 'Include swagger-stats real-time monitoring?',
-      when: (answers) => answers.useSwagger,
-      default: true
-    }
+      message: 'Include nodejs-api-stats real-time monitoring?',
+      when: (answers) => answers.useApiDocGen,
+      default: false
+    }*/
   ]);
 
   return answers;
