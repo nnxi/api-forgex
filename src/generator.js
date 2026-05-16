@@ -42,21 +42,16 @@ const renderDirectory = async (tempDir, targetDir, answers) => {
 
 const rendering = async (tempPath, answers) => {
     try {
-        tempPath = path.join(tempPath, 'template');
-        
         const targetPath = path.join(process.cwd(), answers.projectName);
-
         await fs.ensureDir(targetPath);
 
         const baseDir = path.join(tempPath, 'base');
-
         if (fs.existsSync(baseDir)) {
             await renderDirectory(baseDir, targetPath, answers);
         }
 
         if (answers.useDB) {
             const dbDir = path.join(tempPath, 'addons', 'db');
-
             if (fs.existsSync(dbDir)) {
                 await renderDirectory(dbDir, targetPath, answers);
             }
@@ -64,9 +59,22 @@ const rendering = async (tempPath, answers) => {
 
         if (answers.useJWT) {
             const jwtDir = path.join(tempPath, 'addons', 'jwt');
-
             if (fs.existsSync(jwtDir)) {
                 await renderDirectory(jwtDir, targetPath, answers);
+            }
+            
+            if (!answers.useUsersDomain) {
+                const jwtStandaloneDir = path.join(tempPath, 'addons', 'jwt_standalone');
+                if (fs.existsSync(jwtStandaloneDir)) {
+                    await renderDirectory(jwtStandaloneDir, targetPath, answers);
+                }
+            }
+        }
+
+        if (answers.useUsersDomain) {
+            const usrDir = path.join(tempPath, 'addons', 'usr');
+            if (fs.existsSync(usrDir)) {
+                await renderDirectory(usrDir, targetPath, answers);
             }
         }
 

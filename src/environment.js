@@ -1,8 +1,6 @@
 import { execSync } from 'child_process';
-import fs from 'fs-extra';
-import path from 'path';
 
-// 환경 변수 및 필수 도구 설치 여부 검사
+// Check environment variables and required tools
 const preProcess = (answers) => {
     const missingTools = [];
 
@@ -32,21 +30,14 @@ const preProcess = (answers) => {
     return true;
 };
 
+// Execute post-generation tasks
 const postProcess = async (targetPath) => {
     try {
-        const envExaplePath = path.join(targetPath, '.env.example');
-        const envPath = path.join(targetPath, '.env');
-
-        if (fs.existsSync(envExaplePath) && !fs.existsSync(envPath)) {
-            await fs.copy(envExaplePath, envPath);
-        }
-
         console.log('\nPackage installing...');
         execSync('npm install', {
             cwd: targetPath,
             stdio: 'inherit'
         }); 
-
     } catch (err) {
         throw err;
     }

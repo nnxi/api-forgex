@@ -13,14 +13,14 @@ const gitClone = async (repoUrl) => {
 
         const gitConfigPath = path.join(tempPath, '.git');
 
-        if (fs.existsSync(gitConfigPath)) {
+        if (await fs.pathExists(gitConfigPath)) {
             await fs.remove(gitConfigPath);
         }
 
         return tempPath;
 
     } catch (err) {
-        if (fs.existsSync(tempPath)) {
+        if (await fs.pathExists(tempPath)) {
             await fs.remove(tempPath);
         }
 

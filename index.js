@@ -60,7 +60,7 @@ async function run() {
     } catch (err) {
         console.error(`\nError: ${err.message}`);
     } finally {
-        if (tempPath && fs.existsSync(tempPath)) {
+        if (tempPath && await fs.pathExists(tempPath)) {
             await fs.remove(tempPath);
         }
     }
