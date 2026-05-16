@@ -1,15 +1,15 @@
 {
-  "name": "api-forgex",
+  "name": "api-forgex-cli",
   "version": "1.0.0",
   "description": "CLI tool for scaffolding Express backend infrastructure.",
   "main": "index.js",
   "bin": {
-    "api-forgex": "./index.js"
+    "api-forgex": "index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-    "files": [
+  "files": [
     "index.js",
     "src/"
   ],
