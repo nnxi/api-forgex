@@ -1,6 +1,6 @@
 {
   "name": "api-forgex-cli",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "CLI tool for scaffolding Express backend infrastructure.",
   "main": "index.js",
   "bin": {
@@ -19,7 +19,7 @@
   },
   "keywords": [],
   "author": "nnxi",
-  "license": "ISC",
+  "license": "MIT",
   "type": "module",
   "bugs": {
     "url": "https://github.com/nnxi/api-forgex-cli/issues"
