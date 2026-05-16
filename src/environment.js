@@ -31,13 +31,13 @@ const preProcess = (answers) => {
 };
 
 // Execute post-generation tasks
-const postProcess = async (targetPath) => {
+const postProcess = async (targetPath, answers) => {
     try {
         console.log('\nPackage installing...');
         execSync('npm install', {
             cwd: targetPath,
             stdio: 'inherit'
-        }); 
+        });
     } catch (err) {
         throw err;
     }

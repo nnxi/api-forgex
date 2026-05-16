@@ -9,7 +9,6 @@ const renderDirectory = async (tempDir, targetDir, answers) => {
         while (queue.length > 0) {
             const { src, dest } = queue.shift();
 
-            //파일이 없으면 만들고, 있으면 추가
             await fs.ensureDir(dest);
 
             const items = await fs.readdir(src);
@@ -36,35 +35,39 @@ const renderDirectory = async (tempDir, targetDir, answers) => {
             }
         }
     } catch (err) {
-        throw new Error(`directory redering failed (${tempDir}): ${err.message}`);
+        throw new Error(`Directory rendering failed (${tempDir}): ${err.message}`);
     }
 };
 
 const rendering = async (tempPath, answers) => {
     try {
+        const templateRootPath = path.join(tempPath, 'template');
+        
         const targetPath = path.join(process.cwd(), answers.projectName);
         await fs.ensureDir(targetPath);
 
-        const baseDir = path.join(tempPath, 'base');
+        const baseDir = path.join(templateRootPath, 'base');
         if (fs.existsSync(baseDir)) {
             await renderDirectory(baseDir, targetPath, answers);
+        } else {
+            throw new Error(`Base directory not found at: ${baseDir}. Check repository structure.`);
         }
 
         if (answers.useDB) {
-            const dbDir = path.join(tempPath, 'addons', 'db');
+            const dbDir = path.join(templateRootPath, 'addons', 'db');
             if (fs.existsSync(dbDir)) {
                 await renderDirectory(dbDir, targetPath, answers);
             }
         }
 
         if (answers.useJWT) {
-            const jwtDir = path.join(tempPath, 'addons', 'jwt');
+            const jwtDir = path.join(templateRootPath, 'addons', 'jwt');
             if (fs.existsSync(jwtDir)) {
                 await renderDirectory(jwtDir, targetPath, answers);
             }
             
             if (!answers.useUsersDomain) {
-                const jwtStandaloneDir = path.join(tempPath, 'addons', 'jwt_standalone');
+                const jwtStandaloneDir = path.join(templateRootPath, 'addons', 'jwt_standalone');
                 if (fs.existsSync(jwtStandaloneDir)) {
                     await renderDirectory(jwtStandaloneDir, targetPath, answers);
                 }
@@ -72,7 +75,7 @@ const rendering = async (tempPath, answers) => {
         }
 
         if (answers.useUsersDomain) {
-            const usrDir = path.join(tempPath, 'addons', 'usr');
+            const usrDir = path.join(templateRootPath, 'addons', 'usr');
             if (fs.existsSync(usrDir)) {
                 await renderDirectory(usrDir, targetPath, answers);
             }

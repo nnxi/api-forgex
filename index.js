@@ -47,13 +47,13 @@ async function run() {
 
         console.log('\nProject generation completed successfully!');
 
-        await postProcess(targetPath);
+        await postProcess(targetPath, answers);
 
         console.log('\nProject setup completed successfully.');
         console.log('You can now start the server with the following commands:\n');
         console.log(`  cd ${answers.projectName}`);
         if (answers.useDB) {
-            console.log('  docker-compose up -d');
+            console.log('  docker compose up -d');
         }
         console.log('  npm start\n');
 
