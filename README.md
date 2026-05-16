@@ -1,10 +1,10 @@
-# api-forgex
+# api-forgex-cli
 
-[![NPM Version](https://img.shields.io/npm/v/api-forgex.svg)](https://www.npmjs.com/package/api-forgex)
-[![GitHub Repository](https://img.shields.io/badge/GitHub-Repository-black.svg?logo=github)](https://github.com/nnxi/api-forgex)
+[![NPM Version](https://img.shields.io/npm/v/api-forgex-cli.svg)](https://www.npmjs.com/package/api-forgex-cli)
+[![GitHub Repository](https://img.shields.io/badge/GitHub-Repository-black.svg?logo=github)](https://github.com/nnxi/api-forgex-cli)
 
 A CLI tool for scaffolding scalable and modular Express.js backend infrastructure. 
-`api-forgex` helps you quickly bootstrap a Node.js server with interactive prompts, offering out-of-the-box support for Databases, JWT authentication, and automatic API documentation.
+`api-forgex-cli` helps you quickly bootstrap a Node.js server with interactive prompts, offering out-of-the-box support for Databases, JWT authentication, and automatic API documentation.
 
 ## Features
 
@@ -20,7 +20,7 @@ You don't need to install this package globally. Just use `npx` to generate your
 
 ```bash
 # Generate a new project in current directory
-npx api-forgex
+npx api-forgex-cli
 ```
 
 ## Available Scripts

@@ -18,13 +18,13 @@ let tempPath;
 const args = process.argv.slice(2);
 
 if (args.includes('-v') || args.includes('--version')) {
-    console.log(`api-forgex version ${pkg.version}`);
+    console.log(`api-forgex-cli version ${pkg.version}`);
     process.exit(0);
 }
 
 if (args.includes('-h') || args.includes('--help')) {
     console.log(`
-Usage: npx api-forgex [options]
+Usage: npx api-forgex-cli [options]
 
 A CLI tool for generating Node.js  API boilerplates using Express.
 

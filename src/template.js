@@ -4,7 +4,7 @@ import path from 'path';
 import os from 'os';
 
 const gitClone = async (repoUrl) => {
-    const tempPath = path.join(os.tmpdir(), `api-forgex-${Date.now()}`);
+    const tempPath = path.join(os.tmpdir(), `api-forgex-cli-${Date.now()}`);
 
     try {
         console.log('Fetching templates from GitHub...');
