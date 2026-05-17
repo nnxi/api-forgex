@@ -42,7 +42,11 @@ const getOptions = async () => {
     }*/
   ]);
 
-  return answers;
+  return {
+    useUsersDomain: false,
+    useMonitoring: false,
+    ...answers
+  };
 };
 
 export default getOptions;
