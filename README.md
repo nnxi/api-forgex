@@ -46,7 +46,7 @@ npm run dev
 
 If you selected the **Users Domain** and **Database** addons during setup, the initial database is automatically seeded with five test accounts. You can use these accounts to easily test JWT authentication and user status logic.
 
-> **The password for all test accounts is: `test`**
+> **The password for all test accounts is: `password`**
 
 | Username (ID) | Email | Status | Description |
 | :--- | :--- | :--- | :--- |
