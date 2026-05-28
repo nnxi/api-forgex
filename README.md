@@ -56,6 +56,14 @@ If you selected the **Users Domain** and **Database** addons during setup, the i
 | `test3` | test3@test.com | ACTIVE | Withdrawn user (Soft-deleted) |
 | `test4` | test4@test.com | SUSPENDED | Suspended and withdrawn user |
 
+## Frontend Demo Client
+
+Are you a beginner wanting to see the simple connection cycle between the frontend and backend? We provide a lightweight demo client! 
+
+You can clone the frontend repository from the link below and easily test the JWT authentication and User APIs using the default test accounts.
+
+* **Test it here:** [nnxi/api-forgex-demo](https://github.com/nnxi/api-forgex-demo)
+
 ## License
 
 [MIT](LICENSE)
